@@ -1,0 +1,20 @@
+<h1>Pumpkin Panic Calculator</h1>
+
+<form [formGroup]="form">
+  <div formArrayName="calculator">
+    <div *ngFor="let actionLine of form.controls.calculator.controls; let i=index">
+      <div [formGroupName]="i" class="action-line">
+        <label for="action-{{ i }}">{{(i + 1) + "."}}</label>
+        <div formGroupName="harvests" class="harvests">
+          <input type="number" formControlName="red" />
+          <input type="number" formControlName="green" />
+          <input type="number" formControlName="orange" />
+          <input type="number" formControlName="purple" />
+        </div>
+        <div formGroupName="purchases" class="purchases">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
