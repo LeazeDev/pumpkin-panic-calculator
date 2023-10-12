@@ -19,6 +19,7 @@ interface Prices {
     well: number[],
     boots: number[],
     coins: number[],
+    bag: number[],
     unlockRed: number,
     unlockGreen: number,
     unlockOrange: number,
@@ -27,15 +28,15 @@ interface Prices {
     green: number,
     orange: number,
     purple: number,
-    bag: number[],
-    gear: number[]
+    gear: number
 }
 
 export const prices: Prices = {
-    bucket: [8], // TODO finish adding prices
-    well: [10],
-    boots: [12],
-    coins: [20],
+    bucket: [8, 12, 20, 32, 48, 68, 92, 120, 152, 188], // TODO second not sure
+    well: [10, 14, 22, 34, 50, 70, 94, 122, 154, 190], // TODO second not sure
+    boots: [12, 16, 24, 36, 52],
+    coins: [20, 24, 32, 44, 60, 80, 104, 132, 164, 200],
+    bag: [25, 35, 50],
     unlockRed: 10,
     unlockGreen: 80,
     unlockOrange: 240,
@@ -44,6 +45,5 @@ export const prices: Prices = {
     green: 4,
     orange: 6,
     purple: 10,
-    bag: [],
-    gear: [2000, 2000, 2000, 2000]
+    gear: 2000
 }

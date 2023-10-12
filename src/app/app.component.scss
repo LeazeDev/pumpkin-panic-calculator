@@ -1,11 +1,52 @@
-.action-line {
+.container {
+    width: 960px;
+    margin: auto;
+}
+
+.header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.category {
+    text-align: center;
+    font-weight: bold;
+}
+
+.action-line {
+    display: grid;
+    grid-template-columns: 24px 5fr 16px 5fr 16px 5fr 16px 1fr 16px 48px;
 }
 
 .harvests {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .purchases {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.loot {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.action-prefix {
+    text-align: center;
+}
+
+.action-input {
+    max-width: 100%;
+}
+
+.sum {
+    text-align: center;
 }

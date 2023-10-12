@@ -1,20 +1,103 @@
-<h1>Pumpkin Panic Calculator</h1>
+<div class="container">
+  <div class="header">
+    <h1>Pumpkin Panic Planner</h1>
+    <button (click)="resetForm()">Reset</button>
+  </div>
 
-<form [formGroup]="form">
-  <div formArrayName="calculator">
-    <div *ngFor="let actionLine of form.controls.calculator.controls; let i=index">
-      <div [formGroupName]="i" class="action-line">
-        <label for="action-{{ i }}">{{(i + 1) + "."}}</label>
-        <div formGroupName="harvests" class="harvests">
-          <input type="number" formControlName="red" />
-          <input type="number" formControlName="green" />
-          <input type="number" formControlName="orange" />
-          <input type="number" formControlName="purple" />
-        </div>
-        <div formGroupName="purchases" class="purchases">
-
+  <form [formGroup]="form" class="form">
+    <div class="action-line">
+      <div></div>
+      <div class="category">
+        Harvests
+      </div>
+      <div></div>
+      <div class="category">
+        Upgrades
+      </div>
+      <div></div>
+      <div class="category">
+        Consumables
+      </div>
+      <div></div>
+      <div class="category">
+        Loot
+      </div>
+      <div></div>
+      <div class="category">
+        Stats
+      </div>
+    </div>
+    <div class="action-line">
+      <div class="action-prefix"></div>
+      <div class="harvests">
+        <div class="action-cell">White</div>
+        <div class="action-cell">Red</div>
+        <div class="action-cell">Green</div>
+        <div class="action-cell">Orange</div>
+        <div class="action-cell">Purple</div>
+      </div>
+      <div></div>
+      <div class="purchases">
+        <div class="action-cell">Bucket</div>
+        <div class="action-cell">Well</div>
+        <div class="action-cell">Boots</div>
+        <div class="action-cell">Coins</div>
+        <div class="action-cell">Bag</div>
+      </div>
+      <div></div>
+      <div class="purchases">
+        <div class="action-cell">Red</div>
+        <div class="action-cell">Green</div>
+        <div class="action-cell">Orange</div>
+        <div class="action-cell">Purple</div>
+        <div class="action-cell">Gears</div>
+      </div>
+      <div></div>
+      <div class="sum">
+        Loot
+      </div>
+      <div></div>
+      <div class="sum">
+        Money
+      </div>
+    </div>
+    <div formArrayName="calculator">
+      <div *ngFor="let actionLine of form.controls.calculator.controls; let i=index">
+        <div [formGroupName]="i" class="action-line">
+          <label for="action-{{ i }}" class="action-prefix">{{(i + 1) + "."}}</label>
+          <div formGroupName="harvests" class="harvests">
+            <input type="text" formControlName="white" class="action-input action-cell" />
+            <input type="text" formControlName="red" class="action-input action-cell" />
+            <input type="text" formControlName="green" class="action-input action-cell" />
+            <input type="text" formControlName="orange" class="action-input action-cell" />
+            <input type="text" formControlName="purple" class="action-input action-cell" />
+          </div>
+          <div></div>
+          <div formGroupName="upgrades" class="purchases">
+            <input type="text" formControlName="bucket" class="action-input action-cell" />
+            <input type="text" formControlName="well" class="action-input action-cell" />
+            <input type="text" formControlName="boots" class="action-input action-cell" />
+            <input type="text" formControlName="coins" class="action-input action-cell" />
+            <input type="text" formControlName="bag" class="action-input action-cell" />
+          </div>
+          <div></div>
+          <div formGroupName="upgrades" class="purchases">
+            <input type="text" formControlName="red" class="action-input action-cell" />
+            <input type="text" formControlName="green" class="action-input action-cell" />
+            <input type="text" formControlName="orange" class="action-input action-cell" />
+            <input type="text" formControlName="purple" class="action-input action-cell" />
+            <input type="text" formControlName="gear" class="action-input action-cell" />
+          </div>
+          <div></div>
+          <div formGroupName="loot" class="loot">
+            <input type="text" formControlName="lootValue" class="action-input action-cell" />
+          </div>
+          <div></div>
+          <div class="sum">
+            {{state[i].money}}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
