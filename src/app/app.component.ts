@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { cropValues, prices } from './values';
 
 @Component({
@@ -31,9 +33,19 @@ export class AppComponent implements OnInit {
     money: 0,
   };
 
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(
+    private fb: UntypedFormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private location: Location,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       calculator: this.fb.array([
+        this.createActionLine(),
+        this.createActionLine(),
+        this.createActionLine(),
+        this.createActionLine(),
+        this.createActionLine(),
         this.createActionLine(),
         this.createActionLine(),
         this.createActionLine(),
@@ -56,6 +68,40 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      const data = JSON.parse(params['data'] ?? "[]");
+      if (!!data || Array.isArray(data)) {
+        for (let i = 0; i < data.length; i++) {
+          const row = data[i];
+          this.form.controls.calculator.controls[i].setValue({
+            harvests: {
+              white: row[0],
+              red: row[1],
+              green: row[2],
+              orange: row[3],
+              purple: row[4]
+            },
+            upgrades: {
+              bucket: row[5],
+              well: row[6],
+              boots: row[7],
+              coins: row[8],
+              bag: row[9],
+              red: row[10],
+              green: row[11],
+              orange: row[12],
+              purple: row[13],
+              gear: row[14],
+            },
+            loot: {
+              lootValue: row[15]
+            }
+          });
+        }
+      }
+
+      this.recalculateState();
+    });
     this.form.valueChanges.subscribe(() => this.recalculateState());
   }
 
@@ -69,7 +115,7 @@ export class AppComponent implements OnInit {
       this.enforceRules(previousState, control);
 
       const upgrades = control.controls.upgrades.value;
-      const currCropValues = cropValues[upgrades.coins ?? 0];
+      const currCropValues = cropValues[previousState.moneyUpgrade];
 
       const harvests = control.controls.harvests.value;
       const income
@@ -78,9 +124,10 @@ export class AppComponent implements OnInit {
         + (harvests.green ?? 0) * currCropValues[2]
         + (harvests.orange ?? 0) * currCropValues[3]
         + (harvests.purple ?? 0) * currCropValues[4]
-        + (control.value.loot?.lootValue ?? 0);
+        + +(control.value.loot?.lootValue ?? 0);
 
       const expenses = this.calculateExpenses(previousState, control);
+
 
       this.state[idx] = {
         bucket: upgrades.bucket ?? 0,
@@ -103,6 +150,47 @@ export class AppComponent implements OnInit {
 
         money: previousState.money + income - expenses
       };
+    });
+  }
+
+  saveToUrl(): void {
+    const formAsArray = this.form.value.calculator?.map(row => {
+      const harvests = row.harvests!;
+      const upgrades = row.upgrades!;
+      const loot = row.loot!;
+      return [
+        harvests.white,
+        harvests.red,
+        harvests.green,
+        harvests.orange,
+        harvests.purple,
+        //
+        upgrades.bucket,
+        upgrades.well,
+        upgrades.boots,
+        upgrades.coins,
+        upgrades.bag,
+        upgrades.red,
+        upgrades.green,
+        upgrades.orange,
+        upgrades.purple,
+        upgrades.gear,
+        //
+        loot.lootValue
+      ]
+    });
+    this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: { data: JSON.stringify(formAsArray) } }).then(() => {
+      let selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = window.location.href;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
     });
   }
 
@@ -205,11 +293,12 @@ interface ActionsEntry {
     well: FormControl<number>,
     boots: FormControl<number>,
     coins: FormControl<number>,
+    bag: FormControl<number>,
+
     red: FormControl<number>,
     green: FormControl<number>,
     orange: FormControl<number>,
     purple: FormControl<number>,
-    bag: FormControl<number>,
     gear: FormControl<number>
   }>,
   loot: FormGroup<{
