@@ -32,12 +32,12 @@ interface Prices {
 }
 
 export const prices: Prices = {
-    bucket: [8, 12, 20, 32, 48, 68, 92, 120, 152, 188], // TODO second not sure
-    well: [10, 14, 22, 34, 50, 70, 94, 122, 154, 190], // TODO second not sure
+    bucket: [8, 12, 20, 32, 48, 68, 92, 120, 152, 188],
+    well: [10, 14, 22, 34, 50, 70, 94, 122, 154, 190],
     boots: [12, 16, 24, 36, 52],
     coins: [20, 24, 32, 44, 60, 80, 104, 132, 164, 200],
     bag: [25, 35, 50],
-    unlockRed: 10,
+    unlockRed: 12,
     unlockGreen: 80,
     unlockOrange: 240,
     unlockPurple: 500,
