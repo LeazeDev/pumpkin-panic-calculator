@@ -45,5 +45,5 @@ export const prices: Prices = {
     green: 4,
     orange: 6,
     purple: 10,
-    gear: 2000
+    gear: 1000
 }
