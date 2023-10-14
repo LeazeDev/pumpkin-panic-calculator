@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -33,10 +32,24 @@ export class AppComponent implements OnInit {
     money: 0,
   };
 
+  get priceArray(): [string, number[]][] {
+    return [
+      ["Bucket", prices.bucket],
+      ["Well", prices.well],
+      ["Boots", prices.boots],
+      ["Coins", prices.coins],
+      ["Bag", prices.bag],
+      ["Red", [prices.unlockRed, prices.red]],
+      ["Green", [prices.unlockGreen, prices.green]],
+      ["Orange", [prices.unlockOrange, prices.orange]],
+      ["Purple", [prices.unlockPurple, prices.purple]],
+      ["Gear", [prices.gear]],
+    ]
+  }
+
   constructor(
     private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
-    private location: Location,
     private router: Router
   ) {
     this.form = this.fb.group({

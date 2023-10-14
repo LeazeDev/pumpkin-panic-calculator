@@ -58,3 +58,16 @@
 .sum {
     text-align: center;
 }
+
+.price-container {
+    margin-top: 2rem;
+
+    .price-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        .price-header {
+            font-weight: bold;
+        }
+    }
+}
