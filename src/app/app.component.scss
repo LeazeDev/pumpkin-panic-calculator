@@ -22,6 +22,14 @@
 .action-line {
     display: grid;
     grid-template-columns: 24px 5fr 16px 5fr 16px 5fr 16px 1fr 16px 48px;
+
+    &:nth-child(odd) {
+        background-color: white;
+    }
+
+    &:nth-child(even) {
+        background-color: #e0e0e0;
+    }
 }
 
 .harvests {
