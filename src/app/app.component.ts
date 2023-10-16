@@ -88,26 +88,26 @@ export class AppComponent implements OnInit {
           const row = data[i];
           this.form.controls.calculator.controls[i].setValue({
             harvests: {
-              white: row[0],
-              red: row[1],
-              green: row[2],
-              orange: row[3],
-              purple: row[4]
+              white: this.denormalize(row[0]),
+              red: this.denormalize(row[1]),
+              green: this.denormalize(row[2]),
+              orange: this.denormalize(row[3]),
+              purple: this.denormalize(row[4]),
             },
             upgrades: {
-              bucket: row[5],
-              well: row[6],
-              boots: row[7],
-              coins: row[8],
-              bag: row[9],
-              red: row[10],
-              green: row[11],
-              orange: row[12],
-              purple: row[13],
-              gear: row[14],
+              bucket: this.denormalize(row[5]),
+              well: this.denormalize(row[6]),
+              boots: this.denormalize(row[7]),
+              coins: this.denormalize(row[8]),
+              bag: this.denormalize(row[9]),
+              red: this.denormalize(row[10]),
+              green: this.denormalize(row[11]),
+              orange: this.denormalize(row[12]),
+              purple: this.denormalize(row[13]),
+              gear: this.denormalize(row[14]),
             },
             loot: {
-              lootValue: row[15]
+              lootValue: this.denormalize(row[15])
             }
           });
         }
@@ -172,24 +172,24 @@ export class AppComponent implements OnInit {
       const upgrades = row.upgrades!;
       const loot = row.loot!;
       return [
-        harvests.white,
-        harvests.red,
-        harvests.green,
-        harvests.orange,
-        harvests.purple,
+        this.normalize(harvests.white),
+        this.normalize(harvests.red),
+        this.normalize(harvests.green),
+        this.normalize(harvests.orange),
+        this.normalize(harvests.purple),
         //
-        upgrades.bucket,
-        upgrades.well,
-        upgrades.boots,
-        upgrades.coins,
-        upgrades.bag,
-        upgrades.red,
-        upgrades.green,
-        upgrades.orange,
-        upgrades.purple,
-        upgrades.gear,
+        this.normalize(upgrades.bucket),
+        this.normalize(upgrades.well),
+        this.normalize(upgrades.boots),
+        this.normalize(upgrades.coins),
+        this.normalize(upgrades.bag),
+        this.normalize(upgrades.red),
+        this.normalize(upgrades.green),
+        this.normalize(upgrades.orange),
+        this.normalize(upgrades.purple),
+        this.normalize(upgrades.gear),
         //
-        loot.lootValue
+        this.normalize(loot.lootValue)
       ]
     });
     this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: { data: JSON.stringify(formAsArray) } }).then(() => {
@@ -205,6 +205,15 @@ export class AppComponent implements OnInit {
       document.execCommand('copy');
       document.body.removeChild(selBox);
     });
+  }
+
+  private normalize(val: number | null | undefined): number {
+    return val || 0;
+  }
+
+  private denormalize(val: number | null): any {
+    console.log(val);
+    return val || null;
   }
 
   private enforceRules(previousState: State, control: FormGroup<ActionsEntry>) {
