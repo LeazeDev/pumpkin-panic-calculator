@@ -104,13 +104,29 @@
     </div>
   </form>
 
-  <div class="price-container">
+  <div class="section-container">
     <h2>Prices</h2>
     <div class="price-wrapper">
       <div *ngFor="let itemPrices of priceArray" class="price-line">
-        <div class="price-header">{{itemPrices[0]}}</div>
+        <div class="header">{{itemPrices[0]}}</div>
         <div *ngFor="let price of itemPrices[1]">{{price}}</div>
       </div>
     </div>
+  </div>
+
+  <div class="section-container">
+    <h2>Probability Calculator</h2>
+    <form [formGroup]="probabilityForm">
+      <div class="probability-line">
+        <span class="header">Number of Items Looted</span>
+        <span class="header">Minimum money to get from loot</span>
+        <span class="header">Probability</span>
+        <input type="text" formControlName="numberOfItems" />
+        <input type="text" formControlName="valueGreaterThan" />
+        <div>{{probabilityCalculating ? "Calculating..." : (probability$ | async) | percent: '1.0-10'}}</div>
+      </div>
+      <div class="note">Note: These calculations are based on estimated values and currently only allow item-counts up
+        to 16, which is already very slow.</div>
+    </form>
   </div>
 </div>

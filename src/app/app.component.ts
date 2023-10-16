@@ -3,6 +3,8 @@ import { FormArray, FormControl, FormGroup, UntypedFormBuilder, Validators } fro
 import { ActivatedRoute, Router } from '@angular/router';
 import { cropValues, prices } from './values';
 import * as exampleJson from '../assets/example.json';
+import { Observable, debounce, debounceTime, delay, map, startWith, tap } from 'rxjs';
+import { calculateProbabilityForSum } from './probabilities';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,12 @@ import * as exampleJson from '../assets/example.json';
 })
 export class AppComponent implements OnInit {
   form: FormGroup<ActionsForm>;
+  probabilityForm: FormGroup<{
+    numberOfItems: FormControl<number>,
+    valueGreaterThan: FormControl<number>
+  }>;
+  probabilityCalculating = false;
+  probability$: Observable<number>;
   state: State[];
 
   startingState: State = {
@@ -79,6 +87,19 @@ export class AppComponent implements OnInit {
     });
     this.state = [];
     this.recalculateState();
+
+    this.probabilityForm = fb.group({
+      numberOfItems: fb.control(7),
+      valueGreaterThan: fb.control(260)
+    });
+    this.probabilityForm.valueChanges.subscribe(() => this.probabilityCalculating = true);
+    this.probability$ = this.probabilityForm.valueChanges.pipe(
+      startWith({ numberOfItems: this.probabilityForm.value.numberOfItems, valueGreaterThan: this.probabilityForm.value.valueGreaterThan }),
+      debounceTime(250),
+      map(val => calculateProbabilityForSum(val.numberOfItems ?? 1, val.valueGreaterThan ?? 0)),
+    );
+    this.probability$.subscribe(() => this.probabilityCalculating = false);
+    this.probabilityForm.updateValueAndValidity({ onlySelf: false, emitEvent: true });
   }
 
   ngOnInit(): void {
