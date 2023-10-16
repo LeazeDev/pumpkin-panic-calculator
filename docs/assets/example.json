@@ -1,0 +1,484 @@
+{
+    "calculator": [
+        {
+            "harvests": {
+                "white": 5,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 0,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 0,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 0,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 0,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 0,
+                "red": 5,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 0,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 0,
+                "red": 5,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 0,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": 4,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 2,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 0,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": 6,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 3,
+                "red": 10,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": 4,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 0,
+                "well": 0,
+                "boots": 0,
+                "coins": 4,
+                "red": 10,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": 6,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 3,
+                "well": 3,
+                "boots": 0,
+                "coins": 4,
+                "red": 10,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 3,
+                "well": 3,
+                "boots": 0,
+                "coins": 5,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": 260
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": 20,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 3,
+                "well": 3,
+                "boots": 0,
+                "coins": 5,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 3,
+                "well": 3,
+                "boots": 0,
+                "coins": 5,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 10,
+                "bag": 1,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 10
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 0,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 20,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 10
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 30
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 20
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": 2
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": 20
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": 2
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        },
+        {
+            "harvests": {
+                "white": null,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null
+            },
+            "upgrades": {
+                "bucket": 4,
+                "well": 3,
+                "boots": 4,
+                "coins": 7,
+                "red": null,
+                "green": null,
+                "orange": null,
+                "purple": null,
+                "bag": 2,
+                "gear": null
+            },
+            "loot": {
+                "lootValue": null
+            }
+        }
+    ]
+}
