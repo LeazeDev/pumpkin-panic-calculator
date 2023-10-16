@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { cropValues, prices } from './values';
+import * as exampleJson from '../assets/example.json';
 
 @Component({
   selector: 'app-root',
@@ -207,12 +208,23 @@ export class AppComponent implements OnInit {
     });
   }
 
+  showExample() {
+    const example = exampleJson;
+    this.form.controls.calculator.clear();
+
+    example.calculator.forEach(line => {
+      const control = this.createActionLine();
+      control.setValue(line as any);
+      this.form.controls.calculator.push(control, { emitEvent: false });
+    });
+    this.recalculateState();
+  }
+
   private normalize(val: number | null | undefined): number {
     return val || 0;
   }
 
   private denormalize(val: number | null): any {
-    console.log(val);
     return val || null;
   }
 
